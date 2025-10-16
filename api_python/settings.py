@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'products',
     'users',
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +134,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': os.getenv('JWT_AUTH_COOKIE'),
+    'JWT_AUTH_REFRESH_COOKIE': os.getenv('JWT_AUTH_REFRESH_COOKIE')
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "dj_rest_auth.jwt_auth.JWTCookieAuthentication"
+    )
+}
