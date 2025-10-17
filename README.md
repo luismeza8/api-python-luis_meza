@@ -40,6 +40,22 @@ docker compose up --build
 
 El archivo docker-compose.yml ya incluye el comando para hacer las migraciones entonces si todo ha salido bien el proyecto se deberia de estar ejecutando en 0.0.0.0:8000
 
+## Como correr las prubeas unitarias
+
+1.- Una vez que se haya construido los contenedores se tiene que correr el siguiente comando para que se inicien en segundo plano
+
+```
+docker compose up -d
+```
+
+2.- Ya que el contenedor este corriendo hay que ejecutar el siguiente comando:
+
+```
+docker compose exec web python manage.py test
+```
+
+Esto prueba todos los endpoints de Usuarios y Productos de forma automatica
+
 ## Comandos para probar la api
 
 ### Crear un nuevo usuario de acceso
