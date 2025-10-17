@@ -1,7 +1,8 @@
 from dj_rest_auth.views import LoginView
-from django.urls import path
+from django.urls import path, include
 
 
 urlpatterns = [
-    path('login', LoginView.as_view())
+    path('', include('dj_rest_auth.urls')),
+    path('registration/', include('dj_rest_auth.registration.urls'))
 ]
